@@ -4,6 +4,7 @@
 
 # 1. Server🛜
 ![alt text](image.png)
+<br>
 **< Server-client Model >**<br>
 - Server : 특정한 서비스를 제공하는 컴퓨터
 - Client : 서비스를 이용하는 사용자
