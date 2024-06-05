@@ -107,10 +107,16 @@
 
 2. HTTP Request를 전송받은 Serlvet Container는 HttpServletRequest, HttpServletResponse 두 객체를 생성
 <br>
+
 3. 요청한 URL을 분석하여 어느 서블릿에 대해 요청을 한 것인지 찾기
 <br>
-4. 해당 서블릿에서 service 메소드를 호출한 후 POST, GET여부에 따라 doGet() 또는 doPost()를 호출 <br>
+
+4. 해당 서블릿에서 service 메소드를 호출한 후 POST, GET여부에 따라 doGet() 또는 doPost()를 호출
+<br>
+
 5. doGet(), doPost() 메소드는 동적 페이지를 생성한 후 HttpServletResponse 객체에 응답을 보냄
+<br>
+
 6. 응답이 끝나면 두 객체를 삭제
 
 
@@ -156,6 +162,8 @@ Servlet 의 기능
 <br>
 
 2. 이 후 작업이 실행 될때마다 service() 메소드가 요청한 HTTP Type에 따른 doGet(), doPost() 메소드 호출
+<br>
+
 3. 최종적으로 Servlet이 서비스 되지 않을 때 destroy() 메소드가 호출
    
 - destroy()는 보통 서버가 종료되었을 때, Servlet의 내용이 변경되어 재 컴파일 될 때 호출함.
