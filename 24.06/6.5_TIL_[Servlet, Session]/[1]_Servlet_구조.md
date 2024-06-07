@@ -47,19 +47,46 @@
 ```
 [코드 설명]<br>
 
-action : <br>
-method : 방식을 뜻한다. get, post
+action : form 데이터를 제출할 URL을 지정한다. <u>빈 값으로 설정하면 현재 URL</u>에 보내게 된다.<br>
+        
 
-> [ GET과 POST의 다른 점 ] <br>
-> 
-> GET : <br>
-> POST : 
+method : 데이터 전송 방식을 결정한다. 주로 사용하는 것은 GET, POST이고 그 외에 PUT, DELETE도 있음.
 
-<br>
+<pre>
+[ 데이터 전송 방식 ]
+ 
+ GET : 주로 서버에서 데이터를 조회할 때 사용
+ POST : 데이터를 서버로 전송하기 위해 사용
+ PUT : 서버에 있는 리소스를 생성하거나 전체적으로 교체하기 위해 사용 = 특정 리소스 업데이트
+ DELETE : 서버에 있는 리소스를 삭제하기 위해 사용
+
+ - 주로 GET과 POST 방식을 많이 사용한다.
+
+[ GET과 POST의 차이점 ]
+
+GET : 데이터가 쿼리 스트링으로 URL에 포함되어 전송된다. 
+ex) http://example.com/resource?id=123
+- GET 방식은 데이터가 URL에 노출이 되기 때문에 보안이 취약하다.
+- URL의 길이 제한이 있기 때문에 대용량의 데이터를 전송하지는 못한다.
+- 주로 html의 < a > 태그에 사용하거나 간단한 데이터 전송에 사용, `페이지 연결`을 주로 한다.
+
+POST : 데이터가 HTTP 헤더에 내용(본문)으로 전송한다.
+- POST 방식은 URL에 데이터를 포함시키지 않기 때문에 보안적인 측면에서 GET보다 좋다.
+- 그러므로 보안이 필요한 데이터(아이디 , 비밀번호) 등의 `데이터 전송`을 주로 담당한다.
+
+- GET 방식은 브라우저에서 캐싱되어 동일한 요청이 반복될 때 서버 부하를 줄일 수 있다.
+   반대로 POST 방식은 캐싱되지 않기 때문에 새로운 요청을 매번 보내야 한다.
+
+[ 캐싱이란? ]
+> 자주 사용하는 데이터나 리소스를 미리 저장해 두었다가 다시 필요할 때 
+> 빠르게 불러올 수 있게 해주는 기술, 서버의 부하를 줄이고 데이터 요청에 대한
+> 응답시간을 줄일 수 있다.
+</pre>
+
 
 ### 1-2. Servlet Parameter
 
-- GET 방식
+- **GET 방식 servlet 예제코드**
 ```java
 package com.ohgiraffers.section01.queryString;
 
@@ -110,7 +137,7 @@ public class QueryStringTestServlet extends HttpServlet {
 ```
 <br>
 
-- POST 방식
+- **POST 방식 servlet 코드**
 ```java
 package com.ohgiraffers.section02.formdata;
 
