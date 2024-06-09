@@ -167,9 +167,83 @@ Servlet 의 기능
 3. 최종적으로 Servlet이 서비스 되지 않을 때 destroy() 메소드가 호출
    
 - destroy()는 보통 서버가 종료되었을 때, Servlet의 내용이 변경되어 재 컴파일 될 때 호출함.
+<br><br>
 
+- Servlet 생명주기 Java Code (Annotation 방식)
+1. `index.jsp` : html 파일
+```html
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JSP - Hello World</title>
+</head>
+<body>
+  <h1>라이프사이클 테스트</h1>
+  <a href="xml-lifecycle">라이프사이클 테스트(xml)</a>
+  <a href="annotation-lifecycle">라이프사이클 테스트(annotation)</a>
+</body>
+</html>
+```
+2. `LifeCycleTestServlet` : Servlet 클래스
+```javascript
+package com.ohgiraffers.chap01.section02.annotation;
 
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
+import java.io.IOException;
+
+@WebServlet(value="/annotation-lifecycle")
+public class LifeCycleTestServlet extends HttpServlet {
+
+    /* 각 메소드의 호출 횟수를 카운트할 목적의 필드 */
+    private int initCount = 1;
+    private int serviceCount = 1;
+    private int destoryCount = 1;
+
+    // 기본생성자
+    public LifeCycleTestServlet() {
+    }
+
+    // 최초 서블릿 요청 시에 동작하는 메소드
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+        System.out.println("annotation 매핑 init() 메소드 호출" + initCount++);
+    }
+
+    // 서블릿 컨테이너가 종료될 때 호출되는 메소드이며 주로 자원을 반납하는 용도로 사용한다.
+    @Override
+    public void destroy() {
+        System.out.println("annotation 매핑 destory() 메소드 호출 : " + destoryCount++);
+    }
+
+    @Override
+    public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
+        /*
+        * 서블릿 컨테이너에 의해 호출되며 최초 요청 시에는 init() 이후에 동작하고,
+        * 두 번째 요청부터는 init() 호출 없이 바로 service()를 호출한다.
+        * */
+        System.out.println("annotation 매핑 service() 메소드 호출 : " + serviceCount++);
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+    }
+}
+```
 
 
 

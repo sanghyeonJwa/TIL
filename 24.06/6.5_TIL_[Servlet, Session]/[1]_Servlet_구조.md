@@ -60,7 +60,7 @@ method : 데이터 전송 방식을 결정한다. 주로 사용하는 것은 GET
  PUT : 서버에 있는 리소스를 생성하거나 전체적으로 교체하기 위해 사용 = 특정 리소스 업데이트
  DELETE : 서버에 있는 리소스를 삭제하기 위해 사용
 
- - 주로 GET과 POST 방식을 많이 사용한다.
+- 주로 GET과 POST 방식을 많이 사용한다.
 
 [ GET과 POST의 차이점 ]
 
@@ -88,8 +88,6 @@ POST : 데이터가 HTTP 헤더에 내용(본문)으로 전송한다.
 
 - **GET 방식 servlet 예제코드**
 ```java
-package com.ohgiraffers.section01.queryString;
-
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -139,8 +137,6 @@ public class QueryStringTestServlet extends HttpServlet {
 
 - **POST 방식 servlet 코드**
 ```java
-package com.ohgiraffers.section02.formdata;
-
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -160,16 +156,22 @@ public class FormDataTestServlet extends HttpServlet {
         String name = request.getParameter("name");
         System.out.println("name = " + name);
 
+        // 모든 요청 파라미터를 Map 형태로 가져오기
         Map<String, String[]> requestMap = request.getParameterMap();
+
+        // keySet = 이 Map의 Key(파라미터 이름)을 저장
         Set<String> keySet = requestMap.keySet();
         Iterator<String> iterator = keySet.iterator();
 
         while(iterator.hasNext()) {
             String key = iterator.next();
+            
+        // 이 곳이 배열인 이유는 key에 해당하는 값이 여러개일 수 있기 때문이다.
+        // ex) 체크박스 등등..
             String[] values = requestMap.get(key);
 
             System.out.println("key = " + key);
-
+        
             for(int i = 0; i < values.length; i++) {
                 System.out.println("value = " + values[i]);
             }
@@ -212,8 +214,6 @@ user-agent : 현재 사용자가 어떤 클라이언트(OS, browser 포함)을 �
 
 - **Servlet Request 예제 코드**
 ```java
-package com.ohgiraffers.section01;
-
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -247,6 +247,12 @@ public class ResponseTestServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
+        /*
+        - 사용자 브라우저에 응답하기 위해서는 HttpServletResponse의 getWriter() method로 
+          PrintWriter 인스턴스를 반환받는다.
+        - PrintWriter는 BufferedWriter와 형제격인 클래스이지만 더 많은 형태의 생성자를 
+          제공하고 있는 범용성으로 인해 더 많이 사용된다.
+        */
         // PrintWriter out = response.getWriter();
 
         StringBuilder responseBuilder = new StringBuilder();
