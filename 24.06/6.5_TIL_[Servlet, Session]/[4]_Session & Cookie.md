@@ -1,4 +1,4 @@
-#  2024.06.05 TIL
+#  2024.06.05 - TIL
 
 # 1. Session과  Cookie
 

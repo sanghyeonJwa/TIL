@@ -1,4 +1,4 @@
-# 2024.06.04 TIL
+# 2024.06.04 - TIL
 
 <br>
 
@@ -187,8 +187,6 @@ Servlet 의 기능
 ```
 2. `LifeCycleTestServlet` : Servlet 클래스
 ```javascript
-package com.ohgiraffers.chap01.section02.annotation;
-
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.ServletRequest;
