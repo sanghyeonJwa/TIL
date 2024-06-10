@@ -5,6 +5,7 @@
 # 1. Server🛜
 ![alt text](image.png)
 <br>
+[ 출처 : team.ohgiraffers ]<br>
 **< Server-client Model >**<br>
 - Server : 특정한 서비스를 제공하는 컴퓨터
 - Client : 서비스를 이용하는 사용자
@@ -29,7 +30,8 @@
 
 ### 1-2. Web 통신구조
 ![alt text](image-1.png)
-
+<br>
+[ 출처 : team.ohgiraffers ]<br>
 <br>
 
 # 2. Web Server란? 
@@ -49,6 +51,7 @@
 ### 3-1. CGI (Common Gateway Interface)
 ![alt text](image-3.png)
 <br>
+[ 출처 : team.ohgiraffers ]<br>
 
   **CGI** <br>
 - 웹 서버가 직접적으로 웹 프로그램을 실행하는 것. 동일한 프로그램에 대한 요청이 있을 때마다 <br>각각 프로그램을 실행한다. 요청과 프로그램이 1:1 매칭되어 실행.<br>
@@ -58,6 +61,7 @@
 
 ### 3-2. WAS (Web Application Server)
 ![alt text](image-4.png)
+[ 출처 : team.ohgiraffers ]<br>
 
 **WAS (Web Application Server)**
 - 사용자가 요청한 서비스의 결과를 스크립트 언어 등으로 가공하여 
@@ -72,7 +76,7 @@
 
 ### 3-3. 둘의 차이점
 ![alt text](image-5.png)
-
+[ 출처 : team.ohgiraffers ]<br>
 <br>
 
 # 4. Servlet🍟
@@ -99,6 +103,10 @@
 
 ### 4-3. Servlet 동작 구조
 ![alt text](image-2.png)
+<br>
+
+[ 출처 : team.ohgiraffers ]<br>
+
 ---
 
 

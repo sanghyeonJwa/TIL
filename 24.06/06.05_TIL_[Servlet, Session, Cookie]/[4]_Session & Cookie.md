@@ -29,7 +29,9 @@ ex) 로그인된 후 로그인 정보, 장바구니에 넣은 데이터 등등..
 2. 서버는 접근한 클라이언트의 Request-Header 필드인 Cookie를 확인하여, 클라이언트가 해당 session-id를 보냈는지 확인
 3. session-id가 존재하지 않는다면, 서버는 session-id를 생성해 클라이언트에게 전달
 4. 서버에서 클라이언트로 돌려준 session-id를 쿠키를 사용해 서버에 저장
-5. 클라이언트는 재접속 시, 이 쿠키를 이용하여 session-id 값을 서버에 전달
+5. 클라이언트는 재접속 시, 쿠키를 이용하여 session-id 값을 서버에 전달
+- 패키지 : `javax.servlet.http.HttpSesssion`, `jakarta.servlet.http.HttpSession`
+
 
 
 `Cookie`<br>
@@ -38,6 +40,7 @@ ex) 로그인된 후 로그인 정보, 장바구니에 넣은 데이터 등등..
 3. 생성한 쿠키에 정보를 담아 HTTP 화면을 돌려줄 때, 같이 클라이언트에게 전달
 4. 넘겨 받은 쿠키는 클라이언트가 가지고 있다가(로컬 PC에 저장) 다시 서버에 요청할 때 요청과 함께 쿠키를 전송
 5. 동일 사이트 재방문시 클라이언트의 PC에 해당 쿠키가 있는 경우, 요청 페이지와 함께 쿠키를 전송한다.
+- 패키지 : `javax.servlet.http.Cookie`, `jakarta.servlet.http.Cookie`
 
 
 ### 1-4. 차이점
