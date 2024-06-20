@@ -94,5 +94,3 @@ public class FirstFilter implements Filter {
 }
 ```
 <br>
-
-## 1-4. 
